@@ -56,19 +56,16 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
   lighthouse:
-    name: Run Lighthouse CI
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Wait for deployment
-        run: sleep 60  # Ajustez le délai si nécessaire pour s'assurer que le site est en ligne
-
-      - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v10
+      - uses: actions/checkout@v4
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: "https://your-deployed-site-url"
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+          urls: |
+            https://orange-ground-02c00f203.4.azurestaticapps.net/
+          budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
