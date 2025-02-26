@@ -1,0 +1,42 @@
+name: Build and save my Docker image to a registry 
+
+ 
+
+on: 
+
+  push: 
+
+    branches: 
+
+      - main  # Déclenchement lorsque le code est poussé sur main 
+
+ 
+
+env: 
+
+  REG_NAME: "nomduregistre" # Nom du registre sans "azurecr.io" 
+
+  IMAGE_NAME: "todo-app" # Nom de votre image dans acr 
+
+ 
+
+jobs: 
+
+  build-and-deploy: 
+
+    runs-on: ubuntu-latest 
+
+ 
+
+    steps: 
+
+      - name: Checkout repository 
+
+        uses: actions/checkout@v3 
+
+ 
+
+      - name: faire le repository
+
+        run: | 
+          docker push exo.container-registry.com/c213-emf/todoapp-chy-300722-210-bg:latest 
