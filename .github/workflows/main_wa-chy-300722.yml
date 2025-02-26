@@ -30,8 +30,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: exo.container-registry.com/${{ secrets.AzureAppService_ContainerUsername_68b9c18c68d943bb87d67fab2669eaf6 }}/c213-emf/todo-app:${{ github.sha }}
-        file: ./Dockerfile
+        tags: exo.container-registry.com/c213-emf/todo-app:latest
+        file: ./src/backend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,4 +48,4 @@ jobs:
         app-name: 'wa-chy-300722'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d6e0cf330c2b4b43b98056e57a071b4b }}
-        images: 'exo.container-registry.com/${{ secrets.AzureAppService_ContainerUsername_68b9c18c68d943bb87d67fab2669eaf6 }}/c213-emf/todo-app:${{ github.sha }}'
+        images: 'exo.container-registry.com/c213-emf/todo-app:${{ github.sha }}'
