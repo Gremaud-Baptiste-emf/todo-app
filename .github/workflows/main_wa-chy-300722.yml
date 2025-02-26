@@ -48,4 +48,4 @@ jobs:
         app-name: 'wa-chy-300722'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d6e0cf330c2b4b43b98056e57a071b4b }}
-        images: 'exo.container-registry.com/c213-emf/todo-app:${{ github.sha }}'
+        images: 'exo.container-registry.com/c213-emf/todo-app:latest'
