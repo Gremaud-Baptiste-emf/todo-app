@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy container app to Azure Web App - wa-chy-300722
+name: Build and deploy container app to Azure Web App - wa-chy-300722-210-baptistegremaud
 
 on:
   push:
@@ -45,7 +42,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'wa-chy-300722'
+        app-name: 'wa-chy-300722-210-baptistegremaud'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d6e0cf330c2b4b43b98056e57a071b4b }}
         images: 'exo.container-registry.com/c213-emf/todo-app:latest'
